@@ -59,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.news:
                         item.setChecked(true);
                         displayMessage("Opening News...");
+                        selectedFragment = new NewsFragment();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
                         drawerLayout.closeDrawers();
                         return true;
                     case R.id.team:
