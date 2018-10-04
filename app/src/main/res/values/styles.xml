@@ -8,11 +8,16 @@
         <item name="colorAccent">@color/colorAccent</item>
 
     </style>
-
+    <!-- Theme for menu items on navigation draver-->
     <style name="themeMenu">
         <item name="android:textSize">20sp</item>
         <item name="listPreferredItemPaddingLeft">110dp</item>
-
     </style>
 
+    <!-- Divider for items on players list -->
+    <style name="Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">2dp</item>
+        <item name="android:background">?android:attr/listDivider</item>
+    </style>
 </resources>

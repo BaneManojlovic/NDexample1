@@ -66,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.team:
                         item.setChecked(true);
                         displayMessage("Opening Team...");
+                        selectedFragment = new PlayersListFragment();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
                         drawerLayout.closeDrawers();
                         return true;
                     case R.id.table:
