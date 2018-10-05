@@ -34,12 +34,10 @@ public class PlayersListAdapter extends RecyclerView.Adapter<PlayersListAdapter.
     private List<Player> listItems;
     private Context context;
 
-
     public PlayersListAdapter(List<Player> listItems, Context context) {
         this.listItems = listItems;
         this.context = context;
     }
-
 
     @NonNull
     @Override
@@ -69,7 +67,6 @@ public class PlayersListAdapter extends RecyclerView.Adapter<PlayersListAdapter.
             public void onClick(View view) {
                 Toast.makeText(context, listItem.getPlayerName(), Toast.LENGTH_LONG).show();
 
-
                 //sending data to player details screen - activity
                 Intent intent = new Intent(context, PlayerDetailsActivity.class);
                 intent.putExtra("image_url", listItem.getPlayerImageUrl());
@@ -77,12 +74,8 @@ public class PlayersListAdapter extends RecyclerView.Adapter<PlayersListAdapter.
                 intent.putExtra("ply_position", listItem.getPlayerPosition());
                 context.startActivity(intent);
 
-
-
             }
         });
-
-
     }
 
     @Override

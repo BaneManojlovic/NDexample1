@@ -81,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.settings:
                         item.setChecked(true);
                         displayMessage("Opening Settings...");
+                        selectedFragment = new SettingsFragment();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
                         drawerLayout.closeDrawers();
                         return true;
                 }
