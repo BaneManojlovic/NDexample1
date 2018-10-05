@@ -15,9 +15,9 @@ public class PlayerDetailsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        // v = inflater.inflate(R.layout.players_list_fragment, container, false);
+        View v = inflater.inflate(R.layout.players_list_fragment, container, false);
 
 
-        return super.onCreateView(inflater, container, savedInstanceState);
+        return v;
     }
 }

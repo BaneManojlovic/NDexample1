@@ -3,6 +3,7 @@ package com.bitnovisad.ndexample1;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -37,13 +38,15 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigationView);
 
-
         //setting up hamburger button fo nav. draw.
         final ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
 
+        //opening home fragment first after starting application
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
 
+        //handling navigation on navigation drawer
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -56,13 +59,6 @@ public class MainActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
                         drawerLayout.closeDrawers();
                         return true;
-                    case R.id.news:
-                        item.setChecked(true);
-                        displayMessage("Opening News...");
-                        selectedFragment = new NewsFragment();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
-                        drawerLayout.closeDrawers();
-                        return true;
                     case R.id.team:
                         item.setChecked(true);
                         displayMessage("Opening Team...");
@@ -70,14 +66,16 @@ public class MainActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
                         drawerLayout.closeDrawers();
                         return true;
+                    case R.id.news:
+                        item.setChecked(true);
+                        displayMessage("Opening News...");
+                        selectedFragment = new NewsFragment();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+                        drawerLayout.closeDrawers();
+                        return true;
                     case R.id.table:
                         item.setChecked(true);
                         displayMessage("Opening Table...");
-                        drawerLayout.closeDrawers();
-                        return true;
-                    case R.id.history:
-                        item.setChecked(true);
-                        displayMessage("Opening History...");
                         drawerLayout.closeDrawers();
                         return true;
                     case R.id.settings:
@@ -101,8 +99,11 @@ public class MainActivity extends AppCompatActivity {
     //method for handlig click on hamburger button on toolbar fo opening nav. draw.
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+  //      Fragment selectedFragment = null;
         switch(item.getItemId()){
             case android.R.id.home:
+//                selectedFragment = new HomeFragment();
+//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
                 drawerLayout.openDrawer(GravityCompat.START);
             return true;
         }
