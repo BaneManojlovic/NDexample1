@@ -5,14 +5,22 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-
+        <item name="colorAccent">@color/accent</item>
+        <!--<item name="preferenceTheme">@style/PreferenceThemeOverlay</item>-->
+        <!-- Preferense Theme for Settings Fragment -->
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
     </style>
-
+    <!-- Theme for menu items on navigation draver-->
     <style name="themeMenu">
         <item name="android:textSize">20sp</item>
         <item name="listPreferredItemPaddingLeft">110dp</item>
+    </style>
 
+    <!-- Divider for items on players list -->
+    <style name="Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">2dp</item>
+        <item name="android:background">?android:attr/listDivider</item>
     </style>
 
 </resources>
