@@ -72,6 +72,8 @@ public class PlayersListAdapter extends RecyclerView.Adapter<PlayersListAdapter.
                 intent.putExtra("image_url", listItem.getPlayerImageUrl());
                 intent.putExtra("ply_name", listItem.getPlayerName());
                 intent.putExtra("ply_position", listItem.getPlayerPosition());
+                //added because of bug on Android 6.0. Here I am calling startActivity() from outside of an Activity.
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
 
             }
