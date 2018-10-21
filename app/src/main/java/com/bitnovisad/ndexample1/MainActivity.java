@@ -17,6 +17,7 @@ import com.bitnovisad.ndexample1.players_list.view.PlayersListFragment;
 
 public class MainActivity extends AppCompatActivity {
 
+   // private static final String BACK_STACK_ROOT_TAG = "home_fragment";
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
@@ -53,35 +54,35 @@ public class MainActivity extends AppCompatActivity {
                         item.setChecked(true);
                         displayMessage("Opening Home...");
                         selectedFragment = new HomeFragment();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();
                         drawerLayout.closeDrawers();
                         return true;
                     case R.id.team:
                         item.setChecked(true);
                         displayMessage("Opening Team...");
                         selectedFragment = new PlayersListFragment();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();
                         drawerLayout.closeDrawers();
                         return true;
                     case R.id.news:
                         item.setChecked(true);
                         displayMessage("Opening News...");
                         selectedFragment = new NewsListFragment();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();
                         drawerLayout.closeDrawers();
                         return true;
                     case R.id.table:
                         item.setChecked(true);
                         displayMessage("Opening Table...");
                         selectedFragment = new TableFragment();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();
                         drawerLayout.closeDrawers();
                         return true;
                     case R.id.settings:
                         item.setChecked(true);
                         displayMessage("Opening Settings...");
                         selectedFragment = new SettingsFragment();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();
                         drawerLayout.closeDrawers();
                         return true;
                 }
@@ -90,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 
     //method for showing message while tapping on item inside of menu on nav. draw.
     public void displayMessage(String message){
