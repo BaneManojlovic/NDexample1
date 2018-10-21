@@ -2,4 +2,6 @@
     <string name="app_name">ND example 1</string>
     <string name="news_recyclerview_fragment">News RecyclerView fragment</string>
     <string name="playerslist_fragment">PlayersList Fragment</string>
+    <string name="date">Date</string>
+    <string name="article_title">Article Title</string>
 </resources>

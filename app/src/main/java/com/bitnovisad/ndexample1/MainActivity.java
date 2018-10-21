@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.bitnovisad.ndexample1.news_list.view.NewsListFragment;
 import com.bitnovisad.ndexample1.players_list.view.PlayersListFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -65,13 +66,15 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.news:
                         item.setChecked(true);
                         displayMessage("Opening News...");
-                        selectedFragment = new NewsFragment();
+                        selectedFragment = new NewsListFragment();
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
                         drawerLayout.closeDrawers();
                         return true;
                     case R.id.table:
                         item.setChecked(true);
                         displayMessage("Opening Table...");
+                        selectedFragment = new TableFragment();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
                         drawerLayout.closeDrawers();
                         return true;
                     case R.id.settings:
