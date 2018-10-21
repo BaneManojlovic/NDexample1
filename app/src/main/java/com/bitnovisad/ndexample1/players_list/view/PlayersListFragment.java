@@ -1,4 +1,4 @@
-package com.bitnovisad.ndexample1;
+package com.bitnovisad.ndexample1.players_list.view;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -17,6 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.bitnovisad.ndexample1.R;
 import com.bitnovisad.ndexample1.players_list.adapter.PlayersListAdapter;
 import com.bitnovisad.ndexample1.players_list.model.Player;
 
@@ -27,7 +28,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlayersListFragment extends Fragment {
+public class PlayersListFragment extends Fragment implements IntPlayersListFragment{
 
     private static final String URL_DATA = "https://raw.githubusercontent.com/BITNoviSad/fccementdata/master/mnu_players_modified.json";
     private RecyclerView recyclerView;
