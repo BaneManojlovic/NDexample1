@@ -269,6 +269,7 @@
                         android:background="@color/icons"
                         android:adjustViewBounds="true"
                         android:scaleType="centerInside"
+                        android:onClick="onClickSend"
                         android:src="@drawable/gmail"/>
 
                     <ImageButton
@@ -280,6 +281,7 @@
                         android:background="@color/icons"
                         android:src="@drawable/facebook_icon"
                         android:adjustViewBounds="true"
+                        android:onClick="onFbClick"
                         android:scaleType="centerInside"
                         />
 
@@ -290,6 +292,7 @@
                         android:background="@color/icons"
                         android:adjustViewBounds="true"
                         android:scaleType="centerInside"
+                        android:onClick="onClickCall"
                         android:src="@drawable/phone_icon"/>
 
                 </LinearLayout>
