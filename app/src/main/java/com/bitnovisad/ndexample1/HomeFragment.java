@@ -97,20 +97,10 @@ public class HomeFragment extends Fragment {
     }
 
     public void onClickCall(View view) {
-        Intent callIntent = new Intent(Intent.ACTION_CALL);
+        Intent callIntent = new Intent(Intent.ACTION_DIAL);
         callIntent.setData(Uri.parse("tel:123456789"));
         if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-            //Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "Your Phone_number"));
-           // startActivity(callIntent);
-
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            Toast.makeText(getContext(), "Not implemented", Toast.LENGTH_SHORT).show();
+            startActivity(callIntent);
             return;
         }
         startActivity(callIntent);
