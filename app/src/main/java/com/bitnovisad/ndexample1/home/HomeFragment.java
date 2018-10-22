@@ -1,4 +1,4 @@
-package com.bitnovisad.ndexample1;
+package com.bitnovisad.ndexample1.home;
 
 import android.Manifest;
 import android.content.Context;
@@ -19,7 +19,9 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-public class HomeFragment extends Fragment {
+import com.bitnovisad.ndexample1.R;
+
+public class HomeFragment extends Fragment implements IntHomeFragment{
 
     private ImageButton btnSendEmail;
     private ImageButton btnOpenFb;

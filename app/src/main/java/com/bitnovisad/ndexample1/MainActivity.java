@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.bitnovisad.ndexample1.home.HomeFragment;
 import com.bitnovisad.ndexample1.news_list.view.NewsListFragment;
 import com.bitnovisad.ndexample1.players_list.view.PlayersListFragment;
 
