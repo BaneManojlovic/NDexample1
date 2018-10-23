@@ -37,17 +37,18 @@ public class PlayerDetailsActivity extends AppCompatActivity {
     //seting values from intent into layout
     public void setImage(String imageUrl, String playerName, String playerPosition) {
 
-        TextView namePly = (TextView) findViewById(R.id.playerDetailsPlayerName);
-        namePly.setText(playerName);
-
-        TextView positionPly = (TextView) findViewById(R.id.playerDetailsPlayerPosition);
-        positionPly.setText(playerPosition);
-
-        ImageView image = (ImageView) findViewById(R.id.playerDetailsImageView);
+        ImageView image = (ImageView) findViewById(R.id.iv_player_details);
         Picasso.with(this)
                 .load(imageUrl)
                 .resize(400, 400)
                 .centerCrop()
                 .into(image);
+
+        TextView namePly = (TextView) findViewById(R.id.tv_player_details_player_name);
+        namePly.setText(playerName);
+
+        TextView positionPly = (TextView) findViewById(R.id.tv_player_details_player_position);
+        positionPly.setText(playerPosition);
+
     }
 }

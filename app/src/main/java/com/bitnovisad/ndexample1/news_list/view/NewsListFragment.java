@@ -54,7 +54,7 @@ public class NewsListFragment extends Fragment {
         //initialize View object
         v = inflater.inflate(R.layout.news_list_fragment, container, false);
 
-        recyclerView = (RecyclerView) v.findViewById(R.id.recyclerViewNewsList);
+        recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view_news_list);
         recyclerView.setHasFixedSize(true);
        // recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL)); //adding divider line under every item in players list
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -83,6 +83,9 @@ public class NewsListFragment extends Fragment {
                                 NewsItem news = new NewsItem(
                                         obj.getString("urlToImage"),
                                         obj.getString("title"),
+                                        obj.getString("description"),
+                                        obj.getString("content"),
+                                        obj.getString("author"),
                                         obj.getString("publishedAt")
                                 );
                                 newsItems.add(news);

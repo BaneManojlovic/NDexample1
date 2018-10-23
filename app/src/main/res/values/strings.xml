@@ -22,4 +22,7 @@
     <string name="league_pos_current">6th</string>
     <string name="club_colors">Boje kluba:</string>
     <string name="club_contact">Kontakt:</string>
+    <string name="home_theme_title">Home Colours Theme</string>
+    <string name="away_theme_title">Away Colours Theme</string>
+    <string name="third_theme_title">Third Colours Theme</string>
 </resources>

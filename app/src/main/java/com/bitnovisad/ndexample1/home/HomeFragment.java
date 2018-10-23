@@ -67,9 +67,8 @@ public class HomeFragment extends Fragment implements IntHomeFragment{
         return v;
     }
 
-
+    //handling click on gmail icon
     public void onClickSend(View view) {
-
         if (isConnectedToInternet()) {
             String[] primalac = {"bane1manojlovic@gmail.com"};
             Intent sentIntent = new Intent(Intent.ACTION_SEND);
@@ -83,6 +82,7 @@ public class HomeFragment extends Fragment implements IntHomeFragment{
         }
     }
 
+    //handling click on facebook icon
     public void onFbClick(View v) {
         if (isConnectedToInternet()) {
             try {
@@ -96,6 +96,7 @@ public class HomeFragment extends Fragment implements IntHomeFragment{
         }
     }
 
+    //handling click on call icon
     public void onClickCall(View view) {
         Intent callIntent = new Intent(Intent.ACTION_DIAL);
         callIntent.setData(Uri.parse("tel:123456789"));
@@ -106,7 +107,7 @@ public class HomeFragment extends Fragment implements IntHomeFragment{
         startActivity(callIntent);
     }
 
-    //proverava da li postoji konekcija sa internetom
+    //checking internet connection
     public boolean isConnectedToInternet() {
         ConnectivityManager connectivity = (ConnectivityManager) getActivity().getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         if (connectivity != null) {

@@ -17,6 +17,7 @@ public class NewsItem implements IntNewsItem{
         this.publishedDate = publishedDate;
     }
 
+
     public NewsItem(String urlToImage, String title, String description, String content, String author, String publishedDate) {
         this.urlToImage = urlToImage;
         this.title = title;

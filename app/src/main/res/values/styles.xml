@@ -3,13 +3,36 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/accent</item>
-        <!--<item name="preferenceTheme">@style/PreferenceThemeOverlay</item>-->
-        <!-- Preferense Theme for Settings Fragment -->
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryDark">@color/color_primary_dark</item>
+        <item name="colorAccent">@color/color_accent</item>
+        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+        <!-- Preference Theme for Settings Fragment -->
         <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
     </style>
+
+    <!-- Base application theme. -->
+    <style name="AppAwayTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#FF02A355</item>
+        <item name="colorPrimaryDark">#FF016133</item>
+        <item name="colorAccent">#FF0AFF89</item>
+        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+        <!-- Preference Theme for Settings Fragment -->
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppThirdTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#FFFFFF</item>
+        <item name="colorPrimaryDark">#FF757575</item>
+        <item name="colorAccent">#FF050505</item>
+        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+        <!-- Preference Theme for Settings Fragment -->
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+    </style>
+
     <!-- Theme for menu items on navigation draver-->
     <style name="themeMenu">
         <item name="android:textSize">20sp</item>
@@ -25,9 +48,15 @@
 
     <!-- Theme for Splash Screen -->
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
+        <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
         <item name="android:windowBackground">@drawable/backgroundsplash</item>
+    </style>
+
+    <!-- Window animation transition -->
+    <style name="WindowAnimationTransition">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
     </style>
 
 </resources>
