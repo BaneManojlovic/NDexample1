@@ -61,7 +61,6 @@ public class HomeFragment extends Fragment implements IntHomeFragment{
             }
         };
 
-
         btnSendEmail.setOnClickListener(listenerEmail);
         btnCallClub.setOnClickListener(listenerCall);
         btnOpenFb.setOnClickListener(listenerFb);
@@ -82,7 +81,6 @@ public class HomeFragment extends Fragment implements IntHomeFragment{
         } else {
             Toast.makeText(getActivity(), "NO INTERNET CONNECTION!", Toast.LENGTH_LONG).show();
         }
-
     }
 
     public void onFbClick(View v) {
@@ -118,7 +116,6 @@ public class HomeFragment extends Fragment implements IntHomeFragment{
                     if (info[i].getState() == NetworkInfo.State.CONNECTED) {
                         return true;
                     }
-
         }
         return false;
     }

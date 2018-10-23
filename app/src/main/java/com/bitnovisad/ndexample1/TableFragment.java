@@ -78,8 +78,8 @@ public class TableFragment extends Fragment {
         });
 
         //load desired web page
-        webWiev.loadUrl("https://www.smeh.rs/");
-        //webWiev.loadUrl("https://www.google.rs/search?biw=1366&bih=657&ei=z3rNW5HsCsu3swHbkZuoCA&q=FK+Cement+Beo%C4%8Din+tabela&oq=FK+Cement+Beo%C4%8Din+tabela&gs_l=psy-ab.3..0i22i30k1.38077.39937.0.41172.7.7.0.0.0.0.106.591.6j1.7.0....0...1c.1.64.psy-ab..0.7.588...38j35i39k1.0.VsBimJtErAU#sie=t;/m/02x2lm8;2;/m/02vyxk8;mt;fp;1");
+        //webWiev.loadUrl("https://www.smeh.rs/");
+        webWiev.loadUrl("http://www.srbijasport.net/league/3893");
 
         return v;
     }
