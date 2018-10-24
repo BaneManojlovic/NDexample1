@@ -6,9 +6,10 @@
         <item name="colorPrimary">@color/color_primary</item>
         <item name="colorPrimaryDark">@color/color_primary_dark</item>
         <item name="colorAccent">@color/color_accent</item>
-        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+        <item name="textContent">@string/home_theme_title</item>
+        <!--<item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>-->
         <!-- Preference Theme for Settings Fragment -->
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+        <!--<item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>-->
     </style>
 
     <!-- Base application theme. -->
@@ -17,20 +18,10 @@
         <item name="colorPrimary">#FF02A355</item>
         <item name="colorPrimaryDark">#FF016133</item>
         <item name="colorAccent">#FF0AFF89</item>
-        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+        <item name="textContent">@string/away_theme_title</item>
+        <!--<item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>-->
         <!-- Preference Theme for Settings Fragment -->
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
-    </style>
-
-    <!-- Base application theme. -->
-    <style name="AppThirdTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">#FFFFFF</item>
-        <item name="colorPrimaryDark">#FF757575</item>
-        <item name="colorAccent">#FF050505</item>
-        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
-        <!-- Preference Theme for Settings Fragment -->
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+        <!--<item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>-->
     </style>
 
     <!-- Theme for menu items on navigation draver-->

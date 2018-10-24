@@ -25,4 +25,11 @@
     <string name="home_theme_title">Home Colours Theme</string>
     <string name="away_theme_title">Away Colours Theme</string>
     <string name="third_theme_title">Third Colours Theme</string>
+    <string name="change_app_theme">Change App Theme:</string>
+    <string name="home_theme">Home Theme</string>
+    <string name="open_tutorial">Open tutorial</string>
+    <string name="tutorial_text">Tutorial</string>
+    <string name="info_bit_ns">Developed by BIT Novi Sad \u00a9 2018</string>
+    <string name="info_about_developer_team">Info about developer team:</string>
+    <string name="privacy_policy">Privacy policy owerview</string>
 </resources>
