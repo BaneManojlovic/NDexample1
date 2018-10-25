@@ -1,8 +1,9 @@
-package com.bitnovisad.ndexample1;
+package com.bitnovisad.ndexample1.settings;
 
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -20,7 +21,11 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class SettingsFragment extends Fragment implements IntSettingsFragment{
+import com.bitnovisad.ndexample1.R;
+
+import static android.content.Context.MODE_PRIVATE;
+
+public class SettingsFragment extends Fragment implements IntSettingsFragment {
 
     private Switch switchHomeTheme;
     private Button btnTutorial;

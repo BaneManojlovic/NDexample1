@@ -57,7 +57,7 @@ public class PlayersListAdapter extends RecyclerView.Adapter<PlayersListAdapter.
         holder.linearLayoutItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, listItem.getPlayerName(), Toast.LENGTH_LONG).show();
+             //   Toast.makeText(context, listItem.getPlayerName(), Toast.LENGTH_LONG).show();
 
                 //sending data to player details screen - activity
                 Intent intent = new Intent(context, PlayerDetailsActivity.class);
@@ -67,7 +67,6 @@ public class PlayersListAdapter extends RecyclerView.Adapter<PlayersListAdapter.
                 //added because of bug on Android 6.0. Here I am calling startActivity() from outside of an Activity.
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
-
             }
         });
     }
@@ -76,7 +75,6 @@ public class PlayersListAdapter extends RecyclerView.Adapter<PlayersListAdapter.
     public int getItemCount() {
         return listItems.size();
     }
-
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 

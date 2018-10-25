@@ -1,4 +1,4 @@
-package com.bitnovisad.ndexample1;
+package com.bitnovisad.ndexample1.settings;
 
 interface IntSettingsFragment {
 

@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import com.bitnovisad.ndexample1.home.HomeFragment;
 import com.bitnovisad.ndexample1.news_list.view.NewsListFragment;
 import com.bitnovisad.ndexample1.players_list.view.PlayersListFragment;
+import com.bitnovisad.ndexample1.settings.SettingsFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigationView);
 
-        //setting up hamburger button fo navigation drawer
+        //setting up hamburger button for navigation drawer
         final ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);

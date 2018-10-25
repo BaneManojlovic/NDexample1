@@ -95,15 +95,6 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/tv_info"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:layout_margin="4dp"
-                android:text="@string/info_bit_ns"
-                android:textColor="@color/primary_text"/>
-
-            <TextView
                 android:id="@+id/tv_privacy_policy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -112,10 +103,15 @@
                 android:text="@string/privacy_policy"
                 android:textColor="?attr/colorPrimary"/>
 
+            <TextView
+                android:id="@+id/tv_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_margin="4dp"
+                android:text="@string/info_bit_ns"
+                android:textColor="@color/primary_text"/>
+
         </LinearLayout>
-
-
-
     </android.support.v7.widget.CardView>
-
 </LinearLayout>
