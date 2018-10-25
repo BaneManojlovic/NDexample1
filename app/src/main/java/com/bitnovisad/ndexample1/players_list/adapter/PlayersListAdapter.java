@@ -1,14 +1,8 @@
 package com.bitnovisad.ndexample1.players_list.adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,9 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bitnovisad.ndexample1.MainActivity;
 import com.bitnovisad.ndexample1.PlayerDetailsActivity;
-import com.bitnovisad.ndexample1.PlayerDetailsFragment;
 import com.bitnovisad.ndexample1.R;
 import com.bitnovisad.ndexample1.players_list.model.Player;
 import com.squareup.picasso.Picasso;
@@ -65,7 +57,7 @@ public class PlayersListAdapter extends RecyclerView.Adapter<PlayersListAdapter.
         holder.linearLayoutItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, listItem.getPlayerName(), Toast.LENGTH_LONG).show();
+             //   Toast.makeText(context, listItem.getPlayerName(), Toast.LENGTH_LONG).show();
 
                 //sending data to player details screen - activity
                 Intent intent = new Intent(context, PlayerDetailsActivity.class);
@@ -75,7 +67,6 @@ public class PlayersListAdapter extends RecyclerView.Adapter<PlayersListAdapter.
                 //added because of bug on Android 6.0. Here I am calling startActivity() from outside of an Activity.
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
-
             }
         });
     }
@@ -84,7 +75,6 @@ public class PlayersListAdapter extends RecyclerView.Adapter<PlayersListAdapter.
     public int getItemCount() {
         return listItems.size();
     }
-
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 

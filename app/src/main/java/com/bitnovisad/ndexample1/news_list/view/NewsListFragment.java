@@ -1,5 +1,8 @@
-package com.bitnovisad.ndexample1;
+package com.bitnovisad.ndexample1.news_list.view;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,6 +13,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -17,6 +22,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.bitnovisad.ndexample1.R;
+import com.bitnovisad.ndexample1.news_list.adapter.NewsListAdapter;
+import com.bitnovisad.ndexample1.news_list.model.NewsItem;
 import com.bitnovisad.ndexample1.players_list.adapter.PlayersListAdapter;
 import com.bitnovisad.ndexample1.players_list.model.Player;
 
@@ -27,39 +35,36 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlayersListFragment extends Fragment {
+public class NewsListFragment extends Fragment {
 
-    private static final String URL_DATA = "https://raw.githubusercontent.com/BITNoviSad/fccementdata/master/mnu_players_modified.json";
+    private static final String URL_DATA = "https://newsapi.org/v2/top-headlines?sources=bbc-sport&apiKey=89cecfc4fed94fbe9ad1f01407726463";
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
-    private List<Player> listItems;
+    private List<NewsItem> newsItems;
     View v;
-
-    public PlayersListFragment() {
-    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        //initialize View object
-        v = inflater.inflate(R.layout.players_list_fragment, container, false);
+        //toast message to handle if there is no internet connection
+        if(isNetworkConnected() == false){
+            Toast.makeText(getActivity(), "No Internet Connection", Toast.LENGTH_LONG).show();
+        }
 
-        recyclerView = (RecyclerView) v.findViewById(R.id.recyclerViewPlayersList);
+        //initialize View object
+        v = inflater.inflate(R.layout.news_list_fragment, container, false);
+
+        recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view_news_list);
         recyclerView.setHasFixedSize(true);
-        recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL)); //adding divider line under every item in players list
+       // recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL)); //adding divider line under every item in players list
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        listItems = new ArrayList<>();
+        newsItems = new ArrayList<>();
 
         //loading players data
         loadRecyclerViewPlayersData();
 
         return v;
     }
-
-//    @Override
-//    public void onCreate(@Nullable Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//    }
 
     //method for loading recyclerview data form server
     public void loadRecyclerViewPlayersData() {
@@ -71,17 +76,21 @@ public class PlayersListFragment extends Fragment {
 
                         try {
                             JSONObject jsonObject = new JSONObject(response);
-                            JSONArray array = jsonObject.getJSONArray("players");
+                            JSONArray array = jsonObject.getJSONArray("articles");
+
                             for(int i=0; i<array.length(); i++){
                                 JSONObject obj = array.getJSONObject(i);
-                                Player player = new Player(
-                                        obj.getString("plname"),
-                                        obj.getString("possition"),
-                                        obj.getString("image")
+                                NewsItem news = new NewsItem(
+                                        obj.getString("urlToImage"),
+                                        obj.getString("title"),
+                                        obj.getString("description"),
+                                        obj.getString("content"),
+                                        obj.getString("author"),
+                                        obj.getString("publishedAt")
                                 );
-                                listItems.add(player);
+                                newsItems.add(news);
                             }
-                            adapter = new PlayersListAdapter(listItems, getActivity().getApplicationContext());
+                            adapter = new NewsListAdapter(newsItems, getActivity().getApplicationContext());
                             recyclerView.setAdapter(adapter);
 
                         } catch (JSONException e) {
@@ -98,6 +107,18 @@ public class PlayersListFragment extends Fragment {
 
         RequestQueue requestQueve = Volley.newRequestQueue(getActivity());
         requestQueve.add(stringRequest);
+
+    }
+
+    //checking is network awailable
+    protected boolean isNetworkConnected() {
+        try {
+            ConnectivityManager mConnectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
+            return (mNetworkInfo == null) ? false : true;
+        }catch (NullPointerException e){
+            return false;
+        }
     }
 
 }

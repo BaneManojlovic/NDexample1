@@ -1,10 +1,12 @@
-package com.bitnovisad.ndexample1;
+package com.bitnovisad.ndexample1.splash_screen.view;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class SplashActivity extends AppCompatActivity {
+import com.bitnovisad.ndexample1.MainActivity;
+
+public class SplashActivity extends AppCompatActivity implements IntSplashActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

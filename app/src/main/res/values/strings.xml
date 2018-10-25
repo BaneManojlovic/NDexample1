@@ -1,5 +1,35 @@
 <resources>
-    <string name="app_name">ND example 1</string>
+    <string name="app_name">FK Cement</string>
     <string name="news_recyclerview_fragment">News RecyclerView fragment</string>
     <string name="playerslist_fragment">PlayersList Fragment</string>
+    <string name="date">Date</string>
+    <string name="article_title">Article Title</string>
+    <string name="full_name">Puno ime:</string>
+    <string name="club_name">Fudbalski Klub Cement</string>
+    <string name="date_of_funding">Datum osnivanja:</string>
+    <string name="funding_year">1913</string>
+    <string name="adress">Adresa:</string>
+    <string name="adress_nmb">Glavna 23, Beocin</string>
+    <string name="nick_name">Plavo Beli</string>
+    <string name="nickname">Nadimak:</string>
+    <string name="stadium">Stadion:</string>
+    <string name="stadium_name">Gradski Stadion Beocin</string>
+    <string name="stadium_capacity">Kapacitet:</string>
+    <string name="capacity_num">1500</string>
+    <string name="league">Liga:</string>
+    <string name="league_name">Srpska Liga Vojvodine</string>
+    <string name="league_possition">Trenutna pozicija:</string>
+    <string name="league_pos_current">6th</string>
+    <string name="club_colors">Boje kluba:</string>
+    <string name="club_contact">Kontakt:</string>
+    <string name="home_theme_title">Home Colours Theme</string>
+    <string name="away_theme_title">Away Colours Theme</string>
+    <string name="third_theme_title">Third Colours Theme</string>
+    <string name="change_app_theme">Change App Theme:</string>
+    <string name="home_theme">Home Theme</string>
+    <string name="open_tutorial">Open tutorial:</string>
+    <string name="tutorial_text">Tutorial</string>
+    <string name="info_bit_ns">Developed by BIT Novi Sad \u00a9 2018</string>
+    <string name="info_about_developer_team">Info:</string>
+    <string name="privacy_policy">Privacy policy owerview</string>
 </resources>

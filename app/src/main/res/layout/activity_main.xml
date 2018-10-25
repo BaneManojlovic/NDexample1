@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@color/colorPrimaryDark"
+        android:background="?attr/colorPrimaryDark"
         android:theme="@style/themeMenu"
         app:headerLayout="@layout/header_layout"
         app:itemTextColor="@color/primary_light"
