@@ -1,5 +1,7 @@
 package com.bitnovisad.ndexample1;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -10,6 +12,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.bitnovisad.ndexample1.home.HomeFragment;
 import com.bitnovisad.ndexample1.news_list.view.NewsListFragment;
@@ -18,7 +22,7 @@ import com.bitnovisad.ndexample1.settings.SettingsFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Toolbar toolbar;
+    public static Toolbar toolbar;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
 
@@ -34,6 +38,13 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigationView);
+
+        //pre nego sto se klikne na bilo koje dugme, ovde moramo da proverimo koja boja je sacuvana u preferencama
+        if(getColor() != getResources().getColor(R.color.color_primary)){
+            toolbar.setBackgroundColor(getColor());
+            navigationView.setBackgroundColor(getColor());
+            setToolbarColor();
+        }
 
         //setting up hamburger button for navigation drawer
         final ActionBar actionBar = getSupportActionBar();
@@ -104,5 +115,18 @@ public class MainActivity extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    //za setovanje boje toolbara
+    public void setToolbarColor(){
+        toolbar.setBackgroundColor(getColor());
+    }
+
+    //metod za dohvatanje boje iz preferenci - tj iz SharedPreferences
+    public int getColor(){
+        SharedPreferences mSharedPreferences = getSharedPreferences("ToolbarColor", Context.MODE_PRIVATE);
+        SharedPreferences.Editor mEditor = mSharedPreferences.edit();
+        int selectedColor = mSharedPreferences.getInt("color", getResources().getColor(R.color.color_primary));
+        return selectedColor;
     }
 }

@@ -7,10 +7,12 @@
         <item name="colorAccent">#03A9F4</item>
         <item name="textContent">@string/home_theme_title</item>
         <item name="backgroundcolor">#FF99F1F2</item>
+        <item name="android:statusBarColor">@color/primary_text</item>
+        <item name="android:navigationBarColor">@color/primary_text</item>
         <!--<item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>-->
     </style>
 
-    <!-- Base application theme. -->
+    <!-- Away application theme. -->
     <style name="AppAwayTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">#FF02A355</item>

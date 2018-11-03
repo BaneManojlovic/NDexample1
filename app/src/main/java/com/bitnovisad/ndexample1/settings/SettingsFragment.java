@@ -20,47 +20,44 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
+import com.bitnovisad.ndexample1.MainActivity;
 import com.bitnovisad.ndexample1.R;
 
-import static android.content.Context.MODE_PRIVATE;
 
 public class SettingsFragment extends Fragment implements IntSettingsFragment {
 
-    private Switch switchHomeTheme;
+    Button btnHomeTheme, btnAwayTheme;
     private Button btnTutorial;
     private TextView privacyPolicy;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        //predefine application theme
-        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
-            getActivity().setTheme(R.style.AppAwayTheme);
-        }
-        else
-            getActivity().setTheme(R.style.AppTheme);
 
         //inflate view
         View v = inflater.inflate(R.layout.settings_fragment, container, false);
+        MainActivity obj = new MainActivity();
 
-        switchHomeTheme = v.findViewById(R.id.theme_switch);
-        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
-            switchHomeTheme.setChecked(true);
+        btnHomeTheme = (Button) v.findViewById(R.id.toggleButton);
+        btnAwayTheme = (Button) v.findViewById(R.id.toggleButton2);
 
-        }
-        switchHomeTheme.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    restartApp();
-                }else {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                    restartApp();
-                }
-            }
+        btnHomeTheme.setOnClickListener((view) -> {
+            Toast.makeText(getActivity(), "Blue pressed", Toast.LENGTH_SHORT).show();
+            obj.toolbar.setBackgroundColor(getResources().getColor(R.color.color_blue));
+            storeColor(getResources().getColor(R.color.color_blue));
+//            getActivity().finish();
+            restartApp();
         });
+
+        btnAwayTheme.setOnClickListener((view) -> {
+            Toast.makeText(getActivity(), "Green pressed", Toast.LENGTH_SHORT).show();
+            obj.toolbar.setBackgroundColor(getResources().getColor(R.color.color_green));
+            storeColor(getResources().getColor(R.color.color_green));
+            restartApp();
+        });
+
 
         //opens tutorial fragment
         btnTutorial = v.findViewById(R.id.btn_tutorial);
@@ -76,17 +73,16 @@ public class SettingsFragment extends Fragment implements IntSettingsFragment {
         privacyPolicy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    if (isConnectedToInternet()) {
-                        try {
-                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://bitnovisad.github.io/"));
-                            startActivity(intent);
-                        } catch (Exception e) {
-                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://bitnovisad.github.io/")));
-                        }
-                    } else {
-                        Toast.makeText(getActivity(), "NO INTERNET CONNECTION!", Toast.LENGTH_LONG).show();
+                if (isConnectedToInternet()) {
+                    try {
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://bitnovisad.github.io/"));
+                        startActivity(intent);
+                    } catch (Exception e) {
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://bitnovisad.github.io/")));
                     }
-
+                } else {
+                    Toast.makeText(getActivity(), "NO INTERNET CONNECTION!", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
@@ -94,7 +90,7 @@ public class SettingsFragment extends Fragment implements IntSettingsFragment {
     }
 
     //restart app in order to implement theme changes
-    public void restartApp(){
+    public void restartApp() {
         Intent intent = getActivity().getBaseContext().getPackageManager()
                 .getLaunchIntentForPackage(getActivity().getBaseContext().getPackageName());
         startActivity(intent);
@@ -113,5 +109,13 @@ public class SettingsFragment extends Fragment implements IntSettingsFragment {
                     }
         }
         return false;
+    }
+
+    //metoda koja skladisti i cuva boju u SharedPreferences - tj. preferencama
+    private void storeColor(int color) {
+        SharedPreferences mSharedPreferences = getActivity().getSharedPreferences("ToolbarColor", Context.MODE_PRIVATE);
+        SharedPreferences.Editor mEditor = mSharedPreferences.edit();
+        mEditor.putInt("color", color);
+        mEditor.apply();
     }
 }
