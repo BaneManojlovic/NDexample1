@@ -37,7 +37,7 @@ public class TableFragment extends Fragment {
 
         //toast message to handle if there is no internet connection
         if(isNetworkConnected() == false){
-            Toast.makeText(getActivity(), "No Internet Connection", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), R.string.no_internet_msg, Toast.LENGTH_LONG).show();
 
         }
 

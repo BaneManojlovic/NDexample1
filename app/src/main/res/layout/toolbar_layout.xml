@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.Toolbar
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:id="@+id/toolbar"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
     android:background="?attr/colorPrimaryDark"
-    />
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-<!--android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
-<!--android:background="?attr/backgroundcolor"-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:gravity="end">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:src="@drawable/fclogo" />
+    </LinearLayout>
+    <!--android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
+    <!--android:background="?attr/backgroundcolor"-->
+</android.support.v7.widget.Toolbar>

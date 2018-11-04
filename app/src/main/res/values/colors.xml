@@ -12,4 +12,5 @@
 
     <color name="color_blue">#303F9F</color>
     <color name="color_green">#FF016133</color>
+    <color name="white_text">#FFFFFF</color>
 </resources>

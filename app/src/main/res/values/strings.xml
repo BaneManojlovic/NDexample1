@@ -32,4 +32,5 @@
     <string name="info_bit_ns">Developed by BIT Novi Sad \u00a9 2018</string>
     <string name="info_about_developer_team">Info:</string>
     <string name="privacy_policy">Privacy policy owerview</string>
+    <string name="no_internet_msg">No Internet Connection</string>
 </resources>

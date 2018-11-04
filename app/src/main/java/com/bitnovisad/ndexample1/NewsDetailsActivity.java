@@ -2,13 +2,23 @@ package com.bitnovisad.ndexample1;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
+
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+
 public class NewsDetailsActivity extends AppCompatActivity {
+
+    //valid date format
+    final static String DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +58,30 @@ public class NewsDetailsActivity extends AppCompatActivity {
             String newsAuthor = getIntent().getStringExtra("author");
             String newsPublishingDate = getIntent().getStringExtra("publishedAt");
 
-            setImage(imageUrl, newsTitle, newsDescription, newsContent, newsAuthor, newsPublishingDate);
+            //for parsing date into desired format
+//            DateFormat outputFormat = new SimpleDateFormat("dd.MM.YYYY.");
+//            DateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.UK);
+//           // DateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX", Locale.US);
+//            //String inputText = "2012-11-17T00:00:00.000-05:00";
+//            String inputText = newsPublishingDate.toString();
+//            Date date = inputFormat.parse(inputText);
+//            String outputText = outputFormat.format(date);
 
+            if(isDateValid(newsPublishingDate) == true) {
+                try {
+                    setImage(imageUrl, newsTitle, newsDescription, newsContent, newsAuthor, parseDateToMyFormat(newsPublishingDate));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+            }
+            else{
+                try {
+                    setImage(imageUrl, newsTitle, newsDescription, newsContent, newsAuthor, parseDateToMyFormatUs(newsPublishingDate));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+            }
+            // setImage(imageUrl, newsTitle, newsDescription, newsContent, newsAuthor, newsPublishingDate);
         }
     }
 
@@ -77,7 +109,6 @@ public class NewsDetailsActivity extends AppCompatActivity {
 
         TextView newsPubDat = (TextView) findViewById(R.id.tv_news_details_date);
         newsPubDat.setText(newsPublishingDate);
-
     }
 
     //seting values from intent into layout
@@ -97,4 +128,45 @@ public class NewsDetailsActivity extends AppCompatActivity {
 //                .into(image);
 //    }
 
+    //method for parsing date into desired format UK
+    public String parseDateToMyFormat(String time) throws ParseException {
+        String inputPattern = "yyyy-MM-dd'T'HH:mm:ss'Z'";
+        String outputPattern;
+        SimpleDateFormat inputFormat = new SimpleDateFormat(inputPattern, Locale.UK);
+        Date date;
+        String str = null;
+        date = inputFormat.parse(time);
+        outputPattern = "dd.MM.YYYY.";
+        SimpleDateFormat outputFormat = new SimpleDateFormat(outputPattern);
+        str = outputFormat.format(date);
+        return str.toUpperCase();
+
+    }
+
+    //method for parsing date into desired format US
+    public String parseDateToMyFormatUs(String time) throws ParseException {
+        String inputPattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+        String outputPattern;
+        SimpleDateFormat inputFormat = new SimpleDateFormat(inputPattern, Locale.UK);
+        Date date;
+        String str = null;
+        date = inputFormat.parse(time);
+        outputPattern = "dd.MM.YYYY.";
+        SimpleDateFormat outputFormat = new SimpleDateFormat(outputPattern);
+        str = outputFormat.format(date);
+        return str.toUpperCase();
+    }
+
+    //method for check is date in valid format UK or US
+    public static boolean isDateValid(String date)
+    {
+        try {
+            DateFormat df = new SimpleDateFormat(DATE_FORMAT);
+            df.setLenient(false);
+            df.parse(date);
+            return true;
+        } catch (ParseException e) {
+            return false;
+        }
+    }
 }

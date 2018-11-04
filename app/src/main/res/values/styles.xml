@@ -26,7 +26,7 @@
     <!-- Theme for menu items on navigation draver-->
     <style name="themeMenu">
         <item name="android:textSize">20sp</item>
-        <item name="listPreferredItemPaddingLeft">110dp</item>
+        <item name="listPreferredItemPaddingLeft">16dp</item>
     </style>
 
     <!-- Divider for items on players list -->

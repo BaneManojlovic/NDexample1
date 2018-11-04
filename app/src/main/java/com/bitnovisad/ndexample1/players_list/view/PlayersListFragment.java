@@ -49,7 +49,7 @@ public class PlayersListFragment extends Fragment implements IntPlayersListFragm
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //toast message to handle if there is no internet connection
         if(isNetworkConnected() == false){
-            Toast.makeText(getActivity(), "No Internet Connection", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), R.string.no_internet_msg, Toast.LENGTH_LONG).show();
         }
 
         //initialize View object

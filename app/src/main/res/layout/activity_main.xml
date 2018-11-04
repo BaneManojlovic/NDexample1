@@ -30,8 +30,16 @@
         android:background="?attr/colorPrimaryDark"
         android:theme="@style/themeMenu"
         app:headerLayout="@layout/header_layout"
-        app:itemTextColor="@color/primary_light"
+        app:itemTextColor="@color/white_text"
+        app:itemBackground="@drawable/rounded_button_selector"
         app:menu="@menu/drawer_menu">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white_text"
+            android:layout_marginTop="180dp">
+        </View>
     </android.support.design.widget.NavigationView>
 
 </android.support.v4.widget.DrawerLayout>

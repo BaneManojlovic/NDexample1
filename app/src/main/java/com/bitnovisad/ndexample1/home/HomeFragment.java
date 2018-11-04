@@ -78,7 +78,7 @@ public class HomeFragment extends Fragment implements IntHomeFragment{
             sentIntent.putExtra(Intent.EXTRA_TEXT, "Body of Email");
             startActivity(sentIntent);
         } else {
-            Toast.makeText(getActivity(), "NO INTERNET CONNECTION!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), R.string.no_internet_msg, Toast.LENGTH_LONG).show();
         }
     }
 
@@ -92,7 +92,7 @@ public class HomeFragment extends Fragment implements IntHomeFragment{
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/pages/category/Sports-Team/Fk-cement-Beocin-360493994053052/")));
             }
         } else {
-            Toast.makeText(getActivity(), "NO INTERNET CONNECTION!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), R.string.no_internet_msg, Toast.LENGTH_LONG).show();
         }
     }
 
