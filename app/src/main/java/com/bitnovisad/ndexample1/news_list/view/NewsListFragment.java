@@ -42,6 +42,7 @@ public class NewsListFragment extends Fragment {
     private RecyclerView.Adapter adapter;
     private List<NewsItem> newsItems;
     View v;
+    ProgressBar progressBar;
 
     @Nullable
     @Override
@@ -54,6 +55,7 @@ public class NewsListFragment extends Fragment {
         //initialize View object
         v = inflater.inflate(R.layout.news_list_fragment, container, false);
 
+        progressBar = (ProgressBar) v.findViewById(R.id.pb_news_list);
         recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view_news_list);
         recyclerView.setHasFixedSize(true);
        // recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL)); //adding divider line under every item in players list
@@ -69,11 +71,12 @@ public class NewsListFragment extends Fragment {
     //method for loading recyclerview data form server
     public void loadRecyclerViewPlayersData() {
 
+        progressBar.setVisibility(View.VISIBLE);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_DATA,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-
+                        progressBar.setVisibility(View.GONE);
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             JSONArray array = jsonObject.getJSONArray("articles");

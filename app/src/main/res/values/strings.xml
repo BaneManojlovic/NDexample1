@@ -33,4 +33,10 @@
     <string name="info_about_developer_team">Info:</string>
     <string name="privacy_policy">Privacy policy owerview</string>
     <string name="no_internet_msg">No Internet Connection</string>
+    <string name="intro_1">Get to know future champion of the Serbia!!!</string>
+    <string name="intro_2">See your favorite players</string>
+    <string name="intro_3">See the latest news ...</string>
+    <string name="intro_4">Follow latest updates on team score table position.</string>
+    <string name="intro_5">Pick Home colour theme of your application, when team playing on home ground.</string>
+    <string name="intro_6">Pick Away colour theme for your application, when team play as guest.</string>
 </resources>

@@ -19,32 +19,18 @@ import android.widget.Toast;
 
 public class TableFragment extends Fragment {
 
-    protected boolean isNetworkConnected() {
-        try {
-            ConnectivityManager mConnectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
-            NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
-            return (mNetworkInfo == null) ? false : true;
-
-        }catch (NullPointerException e){
-            return false;
-
-        }
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-
         //toast message to handle if there is no internet connection
         if(isNetworkConnected() == false){
             Toast.makeText(getActivity(), R.string.no_internet_msg, Toast.LENGTH_LONG).show();
-
         }
 
         //inflate layout for fragment
         View v = inflater.inflate(R.layout.table_fragment, container, false);
 
-        final ProgressBar progressBar = (ProgressBar) v.findViewById(R.id.progressBar1);
+        final ProgressBar progressBar = (ProgressBar) v.findViewById(R.id.pb_table);
         final WebView webWiev = (WebView) v.findViewById(R.id.tableWebView);
         webWiev.getSettings().setJavaScriptEnabled(true);
         webWiev.setWebViewClient(new WebViewClient(){
@@ -76,11 +62,19 @@ public class TableFragment extends Fragment {
                 return false;
             }
         });
-
         //load desired web page
         //webWiev.loadUrl("https://www.smeh.rs/");
         webWiev.loadUrl("http://www.srbijasport.net/league/3893");
-
         return v;
+    }
+
+    protected boolean isNetworkConnected() {
+        try {
+            ConnectivityManager mConnectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
+            return (mNetworkInfo == null) ? false : true;
+        }catch (NullPointerException e){
+            return false;
+        }
     }
 }

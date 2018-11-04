@@ -11,19 +11,16 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatDelegate;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import com.bitnovisad.ndexample1.MainActivity;
 import com.bitnovisad.ndexample1.R;
+import com.bitnovisad.ndexample1.TutorialFragment;
 
 
 public class SettingsFragment extends Fragment implements IntSettingsFragment {
@@ -44,7 +41,7 @@ public class SettingsFragment extends Fragment implements IntSettingsFragment {
         btnAwayTheme = (Button) v.findViewById(R.id.toggleButton2);
 
         btnHomeTheme.setOnClickListener((view) -> {
-            Toast.makeText(getActivity(), "Blue pressed", Toast.LENGTH_SHORT).show();
+          //  Toast.makeText(getActivity(), "Blue pressed", Toast.LENGTH_SHORT).show();
             obj.toolbar.setBackgroundColor(getResources().getColor(R.color.color_blue));
             storeColor(getResources().getColor(R.color.color_blue));
 //            getActivity().finish();
@@ -52,24 +49,29 @@ public class SettingsFragment extends Fragment implements IntSettingsFragment {
         });
 
         btnAwayTheme.setOnClickListener((view) -> {
-            Toast.makeText(getActivity(), "Green pressed", Toast.LENGTH_SHORT).show();
+         //   Toast.makeText(getActivity(), "Green pressed", Toast.LENGTH_SHORT).show();
             obj.toolbar.setBackgroundColor(getResources().getColor(R.color.color_green));
             storeColor(getResources().getColor(R.color.color_green));
             restartApp();
         });
 
-
-        //opens tutorial fragment
+        //open tutorial fragment
         btnTutorial = v.findViewById(R.id.btn_tutorial);
         btnTutorial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "Not implemented yet!", Toast.LENGTH_SHORT).show();
+             //   Toast.makeText(getActivity(), "Not implemented yet!", Toast.LENGTH_SHORT).show();
+                TutorialFragment nextFrag= new TutorialFragment();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, nextFrag,"findThisFragment")
+                        .addToBackStack(null)
+                        .commit();
             }
         });
 
         //opens privacy policy web page
         privacyPolicy = v.findViewById(R.id.tv_privacy_policy);
+
         privacyPolicy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,7 +83,7 @@ public class SettingsFragment extends Fragment implements IntSettingsFragment {
                         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://bitnovisad.github.io/")));
                     }
                 } else {
-                    Toast.makeText(getActivity(), "NO INTERNET CONNECTION!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), R.string.no_internet_msg, Toast.LENGTH_LONG).show();
                 }
             }
         });
