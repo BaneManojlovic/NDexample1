@@ -29,7 +29,9 @@
         <activity
             android:name=".PlayerDetailsActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".NewsDetailsActivity"></activity>
+        <activity
+            android:name=".NewsDetailsActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

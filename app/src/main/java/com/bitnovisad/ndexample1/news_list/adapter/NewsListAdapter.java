@@ -121,7 +121,7 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.ViewHo
         Date date;
         String str = null;
         date = inputFormat.parse(time);
-        outputPattern = "dd.MM.YYYY.";
+        outputPattern = "dd.MM.yyyy.";
         SimpleDateFormat outputFormat = new SimpleDateFormat(outputPattern);
         str = outputFormat.format(date);
         return str.toUpperCase();
@@ -135,7 +135,7 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.ViewHo
         Date date;
         String str = null;
         date = inputFormat.parse(time);
-        outputPattern = "dd.MM.YYYY.";
+        outputPattern = "dd.MM.yyyy.";
         SimpleDateFormat outputFormat = new SimpleDateFormat(outputPattern);
         str = outputFormat.format(date);
         return str.toUpperCase();
