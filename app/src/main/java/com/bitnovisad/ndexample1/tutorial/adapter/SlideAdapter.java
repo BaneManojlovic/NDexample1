@@ -1,14 +1,19 @@
-package com.bitnovisad.ndexample1;
+package com.bitnovisad.ndexample1.tutorial.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.bitnovisad.ndexample1.R;
+
+import me.relex.circleindicator.CircleIndicator;
 
 public class SlideAdapter extends PagerAdapter {
 
@@ -36,7 +41,7 @@ public class SlideAdapter extends PagerAdapter {
     };
 
     //List of numbers
-    public String[] slideNumbers = {"1", "2", "3", "4", "5", "6"};
+  //  public String[] slideNumbers = {"1", "2", "3", "4", "5", "6"};
 
 
     public SlideAdapter(Context context){
@@ -61,11 +66,17 @@ public class SlideAdapter extends PagerAdapter {
         LinearLayout layoutSlide = (LinearLayout) view.findViewById(R.id.ll_slide_layout);
         TextView textIntro = (TextView) view.findViewById(R.id.tv_intro);
         ImageView slideImage = (ImageView) view.findViewById(R.id.iv_slide_image);
-        TextView textCounter = (TextView) view.findViewById(R.id.tv_counter);
+       // TextView textCounter = (TextView) view.findViewById(R.id.tv_counter);
+       // CircleIndicator indicator = (CircleIndicator) view.findViewById(R.id.ci_indicator);
+
+
 
         textIntro.setText(introTitles[position]);
         slideImage.setImageResource(listImages[position]);
-        textCounter.setText(slideNumbers[position]);
+      //  textCounter.setText(slideNumbers[position]);
+      //  indicator.setViewPager((ViewPager) view);
+
+
 
         container.addView(view);
         return view;

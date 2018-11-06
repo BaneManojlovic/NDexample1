@@ -1,4 +1,4 @@
-package com.bitnovisad.ndexample1;
+package com.bitnovisad.ndexample1.tutorial.view;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,10 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bitnovisad.ndexample1.R;
+import com.bitnovisad.ndexample1.tutorial.adapter.SlideAdapter;
+
+import me.relex.circleindicator.CircleIndicator;
+
 public class TutorialFragment extends Fragment {
 
     private ViewPager viewPager;
     private SlideAdapter myAdapter;
+    private CircleIndicator indicator;
 
     @Nullable
     @Override
@@ -21,9 +27,11 @@ public class TutorialFragment extends Fragment {
         View v = inflater.inflate(R.layout.tutorial_fragment, container, false);
 
         viewPager = (ViewPager) v.findViewById(R.id.vp_pager);
+        indicator = (CircleIndicator) v.findViewById(R.id.ci_indicator);
+
         myAdapter = new SlideAdapter(getActivity());
         viewPager.setAdapter(myAdapter);
-
+        indicator.setViewPager(viewPager);
         return v;
     }
 }

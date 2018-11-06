@@ -12,7 +12,10 @@
         android:id="@+id/tv_intro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="4dp"
         android:padding="10dp"
         android:text="Lorem ipsum bla bla ..."
         android:textAlignment="center"
@@ -25,6 +28,7 @@
         android:background="@color/white_text"
         android:layout_marginTop="10dp"
         cardview:cardCornerRadius="5dp"
+        android:layout_marginBottom="64dp"
         cardview:cardElevation="8dp">
 
         <LinearLayout
@@ -43,11 +47,20 @@
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
-    <TextView
-        android:id="@+id/tv_counter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="1" />
+    <!--<TextView-->
+    <!--android:id="@+id/tv_counter"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--android:text="1" />-->
+
+    <!--<me.relex.circleindicator.CircleIndicator-->
+        <!--android:id="@+id/ci_indicator"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="48dp"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:layout_marginBottom="16dp"-->
+        <!--android:ci_drawable="@drawable/ci_indicator_round"/>-->
+
 
 </LinearLayout>

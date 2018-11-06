@@ -20,7 +20,7 @@ import android.widget.Toast;
 
 import com.bitnovisad.ndexample1.MainActivity;
 import com.bitnovisad.ndexample1.R;
-import com.bitnovisad.ndexample1.TutorialFragment;
+import com.bitnovisad.ndexample1.tutorial.view.TutorialFragment;
 
 
 public class SettingsFragment extends Fragment implements IntSettingsFragment {
