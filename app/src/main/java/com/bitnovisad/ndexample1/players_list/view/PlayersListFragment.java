@@ -68,7 +68,7 @@ public class PlayersListFragment extends Fragment implements IntPlayersListFragm
 
         return v;
     }
-
+	
     //method for loading recyclerview data form server
     public void loadRecyclerViewPlayersData() {
 
