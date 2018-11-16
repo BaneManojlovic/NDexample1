@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.bitnovisad.ndexample1.gallery.view.GalleryFragment;
 import com.bitnovisad.ndexample1.home.HomeFragment;
 import com.bitnovisad.ndexample1.news_list.view.NewsListFragment;
 import com.bitnovisad.ndexample1.players_list.view.PlayersListFragment;
@@ -82,6 +83,12 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.table:
                         item.setChecked(true);
                         selectedFragment = new TableFragment();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        return true;
+                    case R.id.gallery:
+                        item.setChecked(true);
+                        selectedFragment = new GalleryFragment();
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         return true;

@@ -16,6 +16,9 @@
             android:id="@+id/table"
             android:title="Table" />
         <item
+            android:id="@+id/gallery"
+            android:title="Gallery" />
+        <item
             android:id="@+id/settings"
             android:title="Settings" />
     </group>
